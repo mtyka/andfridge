@@ -1,0 +1,125 @@
+
+body {
+ background: #444;
+ color: #CCC;
+ line-height: normal;
+}
+
+img { border: 0 }
+
+div.title {
+	text: #FFF;
+	font-size:50pt;
+	font-family:arial;
+	font-weight:bold;
+  height: 100px;
+}
+
+
+div.container{
+  position: relative;
+
+}
+
+div.item, div.stocktype, div.addbutton, div.stockgroup, div.custom_entry, div.navi {
+	position: relative;
+  width:  95%;
+	padding:  5px;
+	background: #558;
+	text: #FFF;
+	font-size:40pt;
+	font-family:arial;
+	font-weight:bold;
+	color:#CCC;
+
+	border-radius: 24px;
+	border-style:solid;
+	border-color: #000;
+  border-width: 8px;
+	border-shadow: rgba(1,1,1,0.5);
+	box-shadow: 0 0 60px rgba(1,1,1,0.5);
+	moz-border-radius: 16px;
+	moz-box-shadow: 0 0 60px rgba(1,1,1,0.5);
+	webkit-border-radius: 16px;
+	webkit-box-shadow: 0 0 60px rgba(1,1,1,0.5);
+}
+
+div.stocktype, div.stockgroup {
+ width: 94%;
+ left: 2.5%;
+
+}
+
+
+div.stockgroup_container, div.stocktype_container {
+	position: absolute;
+  padding: 20px;
+  width: 100%; 
+  height: 100%; 
+  top:  0%;
+  left:  0%;
+  display: none;
+  background: #333;
+}
+
+div.stockgroup {
+	background: #585;
+}
+
+div.stocktype {
+	background: #585;
+}
+
+img.destroy_button{
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  margin-top: -30px;
+}
+
+div.addbutton {
+  position: absolute;
+  top: 10px;
+  right: 4%;
+  width: 160px;
+}
+
+div.navi {
+  width: 180px;
+}
+
+div.custom_entry {
+  display: none;
+  width: 50%;
+  height: 50%;
+  left: 25%;
+  top: 25%;
+}
+
+div.spacer {
+	width: 100%;
+	height: 6px;
+	
+}
+
+.custom_item
+{
+	background: #558;
+	text: #FFF;
+	font-size:40pt;
+	font-family:arial;
+	font-weight:bold;
+	color:#CCC;
+  width: 80%;
+	border-radius: 24px;
+	border-style:solid;
+	border-color: #CCC;
+  border-width: 8px;
+	border-shadow: rgba(1,1,1,0.5);
+	box-shadow: 0 0 60px rgba(1,1,1,0.5);
+	moz-border-radius: 16px;
+	moz-box-shadow: 0 0 60px rgba(1,1,1,0.5);
+	webkit-border-radius: 16px;
+	webkit-box-shadow: 0 0 60px rgba(1,1,1,0.5);
+}
+

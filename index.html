@@ -1,0 +1,113 @@
+<html>
+<head>
+ <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+ <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+ <script type="text/javascript" src="/js/application.js"></script>
+</head>
+
+
+<body>
+    
+    <div class="wholesite">
+    <div class="title">
+      AND Shoppinglist
+    <div class="addbutton" onclick="change_to_menu_stockgroups()" >
+    <center>Add</center>
+    </div>
+    </div>
+
+    <div class="container" id="needed_items" >
+      {% for item in items %}
+      <div id="id{{ item.key() }}">
+      <div class="item">
+      &nbsp;{{ item.name }}, {{ item.group }}
+      <img src="images/x.png" border=0 class="destroy_button" height=60 width=60 onclick="delete_item('{{item.key()}}')">
+      </div>
+      <div class="spacer"> </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <br />
+
+    <div style="display: none">
+    <!--<%= render 'form' %> -->
+    </div>
+
+
+    
+    
+    <div class="stockgroup_container">
+
+    <div class="navi" onclick="close_menus()">
+    Cancel
+    </div>
+
+    <div class="spacer"> </div>
+    <div class="spacer"> </div>
+
+    {% for stockgroup in stockgroups %} 
+      <div>
+      <div class="stockgroup" onclick="change_to_menu_stocktypes('{{ stockgroup }}')">
+          &nbsp; {{ stockgroup }}
+      </div>
+      <div class="spacer"> </div>
+      </div>
+    {% endfor %}
+
+    </div>
+
+
+    {% for stockgroup in stockgroups %} 
+      <div class="stocktype_container" id="{{ stockgroup }}" >
+          
+        <div class="navi" onclick="change_to_menu_stockgroups()" >
+        Cancel
+        </div>
+        <div class="spacer"> </div>
+        <div class="spacer"> </div>
+        
+        <div id="stocktype_block_{{ stockgroup }}" >
+          {% for stocktype in stocktypes %} 
+          {% if stocktype.group == stockgroup %} 
+            <div>
+             <div class="stocktype" id="stocktype_container" onclick=" submit_new_item_for('needed_items','{{ stocktype.name }}','{{ stocktype.group }}')">
+             &nbsp; {{ stocktype.name }}
+             <!--          
+             <%= link_to 'Edit',    stocktype, :method => :edit  , :remote => true %>
+             <%= link_to 'Destroy', stocktype, :method => :delete, :remote => true %>
+             -->
+             </div>
+
+             <div class="spacer"> </div>
+            </div>
+          {% endif  %}
+          {% endfor %}
+        </div>
+
+        <div class="spacer"> </div>
+        <div class="spacer"> </div>
+        <div class="stocktype" onclick="do_custom_entry('{{ stockgroup }}')" style="background: #556" > 
+          Custom
+        </div>
+      </div>
+    {% endfor %}
+
+    <div class="custom_entry" >
+
+    <div id="custom_entry_title">New item:</div>
+
+    <form id="add_custom_item_form" >
+    <input type="text" name="field" class="custom_item" id="custom_item" />
+    </form>
+
+    </div>
+
+    </div>
+    </div>
+
+   
+ 
+  </body>
+</html>
+
