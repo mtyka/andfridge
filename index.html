@@ -20,7 +20,7 @@
       {% for item in items %}
       <div id="id{{ item.key() }}">
       <div class="item">
-      &nbsp;{{ item.name }}, {{ item.group }}
+      &nbsp;{{ item.name }} <!--, {{ item.group }} -->
       <img src="images/x.png" border=0 class="destroy_button" height=60 width=60 onclick="delete_item('{{item.key()}}')">
       </div>
       <div class="spacer"> </div>
@@ -93,15 +93,6 @@
       </div>
     {% endfor %}
 
-    <div class="custom_entry" >
-
-    <div id="custom_entry_title">New item:</div>
-
-    <form id="add_custom_item_form" >
-    <input type="text" name="field" class="custom_item" id="custom_item" />
-    </form>
-
-    </div>
 
     </div>
     </div>

@@ -56,7 +56,7 @@ class MainPage(webapp2.RequestHandler):
         'stockgroups': 
           [
             "Beverages",
-            "Canned food",
+            "Canned",
             "Condiments",
             "Dairy",
             "Dessert",
@@ -73,18 +73,29 @@ class MainPage(webapp2.RequestHandler):
 
 class Add(webapp2.RequestHandler):
   def post(self):
+    items_query = Item.all().ancestor(
+        item_key("needed_items")).order('name')
+    items = items_query.fetch(100)
+    
     list = self.request.get('list')
     newitem = Item(parent=item_key(list))
+
+    
 
     if users.get_current_user():
       newitem.author = users.get_current_user().nickname()
 
     newitem.name = self.request.get('name') 
     newitem.group = self.request.get('group')
-    newitem.put()
-    self.response.out.write( newitem.key() )
-    #no redirect because this is an ajax request now
-    #self.redirect('/')
+    
+    if newitem.name in set([ i.name for i in items ]):
+      #item already exists
+      self.response.out.write( "" )
+    else:
+      newitem.put()
+      self.response.out.write( newitem.key() )
+      #no redirect because this is an ajax request now
+      #self.redirect('/')
 
 class Delete(webapp2.RequestHandler):
   def post(self):

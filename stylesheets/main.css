@@ -89,6 +89,7 @@ div.navi {
 }
 
 div.custom_entry {
+  position: absolute;
   display: none;
   width: 50%;
   height: 50%;
